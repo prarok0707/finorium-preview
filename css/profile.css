@@ -1909,6 +1909,16 @@ textarea.input__target {
     --button-icon-bg: var(--gray-gray-30, #bcbccc);
 }
 
+.scoring {
+    --scoring-rating-value-clr: #f5516c;
+    --scoring-rating-label-clr: #f5516c;
+    --scoring-rating-arrow-fill: var(--base-rich-black);
+    --scoring-minimum-clr: #f5516c;
+    --scoring-sufficient-clr: #ffb81f;
+    --scoring-well-clr: #a8d0a6;
+    --scoring-maximum-clr: #2baf2e;
+}
+
 .scoring__wrapper {
     display: grid;
     gap: 1.25rem;
@@ -1967,6 +1977,39 @@ textarea.input__target {
     flex-direction: column;
     align-items: center;
     gap: 1.25rem;
+    transition-duration: 2000ms;
+}
+
+.scoring__rating.is-minimum {
+    --scoring-rating-value-clr: var(--scoring-minimum-clr);
+    --scoring-rating-label-clr: var(--scoring-minimum-clr);
+}
+
+.scoring__rating.is-sufficient {
+    --scoring-rating-value-clr: var(--scoring-sufficient-clr);
+    --scoring-rating-label-clr: var(--scoring-sufficient-clr);
+}
+
+.scoring__rating.is-well {
+    --scoring-rating-value-clr: var(--scoring-well-clr);
+    --scoring-rating-label-clr: var(--scoring-well-clr);
+}
+
+.scoring__rating.is-maximum {
+    --scoring-rating-value-clr: var(--scoring-maximum-clr);
+    --scoring-rating-label-clr: var(--scoring-maximum-clr);
+}
+
+.scoring__rating .soring__rating-value strong,
+.scoring__rating .scoring__rating-label,
+.scoring__rating .soring__rating-value {
+    transition-duration: inherit;
+}
+
+.soring__rating-value strong,
+.scoring__rating-label,
+.soring__rating-value {
+    transition-property: color;
 }
 
 .soring__rating-value {
@@ -1977,7 +2020,7 @@ textarea.input__target {
     font-size: 3rem;
     line-height: 1;
     text-align: center;
-    color: #4abc44;
+    color: var(--scoring-rating-value-clr);
     position: relative;
 }
 
@@ -1998,7 +2041,7 @@ textarea.input__target {
     font-size: 1.125rem;
     line-height: 1.22222;
     text-align: center;
-    color: #4abc44;
+    color: var(--scoring-rating-label-clr);
 }
 
 .scoring__rating-info {
@@ -2009,6 +2052,29 @@ textarea.input__target {
     line-height: 1.42857;
     text-align: center;
     color: var(--base-rich-black);
+}
+
+.scoring__rating-arrow {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    inset: 0;
+    rotate: 0deg;
+    transition-property: rotate;
+    transition-duration: 200ms;
+}
+
+.scoring__rating-arrow svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-bottom: 1.25rem;
+    display: block;
+    fill: none;
+    stroke: var(--scoring-rating-arrow-fill);
+    stroke-width: 3;
+    stroke-linecap: round;
 }
 
 .scoring__gradations-item {
